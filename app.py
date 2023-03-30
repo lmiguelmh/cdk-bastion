@@ -2,10 +2,17 @@
 
 import aws_cdk as cdk
 
-from cdk_cloud9.cdk_cloud9_stack import CdkCloud9Stack
-
+from core import conf
+from workload import Workload
 
 app = cdk.App()
-CdkCloud9Stack(app, "cdk-cloud9")
-
+aws_env = cdk.Environment(
+    account=conf.AWS_ACCOUNT_ID,
+    region=conf.AWS_REGION,
+)
+Workload(
+    scope=app,
+    construct_id=f"{conf.ENV}",
+    aws_env=aws_env,
+)
 app.synth()

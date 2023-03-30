@@ -20,3 +20,8 @@ venv.bak/
 # CDK Context & Staging files
 .cdk.staging/
 cdk.out/
+
+# custom
+.env*
+package.json
+cdk.context.json
