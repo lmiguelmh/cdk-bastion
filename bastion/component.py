@@ -29,6 +29,7 @@ class BastionStack(Stack):
             vpc_name=conf.BASTION_VPC_NAME,
         )
 
+        # 1. user-data de instancia
         bastion_user_data = ec2.UserData.for_linux()
         bastion_user_data.add_commands(
             Path(__file__).parent.joinpath("./bastion.sh").read_text()
